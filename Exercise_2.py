@@ -1,26 +1,50 @@
-ipt = []
 
-def sort_num(ipt):
-    n = len(ipt)
-    for i in range(n-1):
-        for j in range(0, n-i-1):
-            if ipt[j] > ipt[j+1]:
-                ipt[j], ipt[j+1] =ipt[j+1],ipt[j]
 
+array = []
+Maxinum = 0
+Minimum = 0
 while True:
-    result = input('value:')
     
-    if result.isnumeric():
-        ipt.append(result)
+    result = input('value:')
+    try:
+        temp  = int(result)
+        array.append(temp)
+    except:
+        if result.startswith('done'):
+            lenght = len(array)
+            
+            i = 0
+            j=0
+            while i < lenght -1:
+                
+                for j in range(lenght-1):
+                       
+                        if array[j] > array[ j+ 1 ]:
+                            temp_pos = array[j]
+                            array[j] = array[j+1]
+                            array[j+1] = temp_pos
+                        else:
+                            pass
 
-    elif result.isalpha:
-        if result == 'done':
-            sort_num(ipt)
-            print(ipt)
+                        j+=1
+                i+=1
+
+            print(array)
+            print(f"Maxinum {array[-1]}")
+            print(f"Minimum{array[0]}")    
+                
+            exit()
         else:
-            print('invalid input')
-    else:
-        break
+            print('Invalid Input')
+            continue
+
+        
+    
+        
+    
+
+
+    
 
 
 
